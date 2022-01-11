@@ -1,4 +1,23 @@
 {
-  "name": "md-links",
-  "version": "0.1.0"
+  "name": "ro-md-links",
+  "version": "0.1.0",
+  "description": "Librería desarrollada de línea de comando (CLI) con Node. js,  que lee y analiza archivos en formato Markdown dada una ruta, para verificar los links que contengan ,y así reportar algunas estadísticas.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RJRCH123/LIM016-md-links.git"
+  },
+  "keywords": [],
+  "author": "Rosamaria Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJRCH123/LIM016-md-links/issues"
+  },
+  "homepage": "https://github.com/RJRCH123/LIM016-md-links#readme"
 }
