@@ -2,12 +2,13 @@
   "name": "ro-md-links",
   "version": "0.1.0",
   "description": "Librería desarrollada de línea de comando (CLI) con Node. js,  que lee y analiza archivos en formato Markdown dada una ruta, para verificar los links que contengan ,y así reportar algunas estadísticas.",
-  "main": "index.js",
+  "main": "src/md-links.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/api.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,17 @@
     "links",
     "library",
     "markdown",
-    "path"
+    "path",
+    "node"
   ],
   "author": "Rosamaria Rodriguez",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RJRCH123/LIM016-md-links/issues"
   },
-  "homepage": "https://github.com/RJRCH123/LIM016-md-links#readme"
+  "homepage": "https://github.com/RJRCH123/LIM016-md-links#readme",
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15"
+  }
 }
