@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "description": "Librería desarrollada de línea de comando (CLI) con Node. js,  que lee y analiza archivos en formato Markdown dada una ruta, para verificar los links que contengan ,y así reportar algunas estadísticas.",
   "main": "src/md-links.js",
+  "bin": {
+    "md": "src/cli.js"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node src/api.js",
+    "dev": "node index.js",
+    "nodemon": "nodemon index.js",
     "test": "jest"
   },
   "repository": {
@@ -31,5 +35,8 @@
   "devDependencies": {
     "jest": "^27.4.7",
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0"
   }
 }
