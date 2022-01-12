@@ -1,3 +1,1 @@
-module.exports = () => {
-  // ...
-};
+// Se realizarán las pruebas
