@@ -35,17 +35,10 @@ const isPathADirectory = (content) => fs.statSync(content).isDirectory();
 const readADirectory = (content) => fs.readdirSync(content);
 
 // H6: Validate the extension //
-  const isExtMd = (content) => {
-    const ext = path.extname(content);
-    // if is md file | true or false
-    if (ext === '.md') {
-      return true;
-    }
-    return false;
-  };
+  const isExtMd = (content) => path.extname(content) === '.md';
 
 // H7: Read file 
-const readFile = (content) => fs.readFileSync(content, 'utf-8');
+const readFile = (content) => fs.readFileSync(content, 'utf8');
 
 // H6: Get the paths from go through directory//
 
