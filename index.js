@@ -10,28 +10,37 @@ const {
   getFileFromFolder
 } = require('./src/api.js');
 
+const existPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders';
+const noExistPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\foldersunexist';
+const absolutePath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA';
+const relativePath = 'folders\\folderA';
+const folderPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB';
+const mdFilePath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB\\filemdF.md';
+const txtFilePath= 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\filetxt.txt';
+const directoryPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
+
 // H1: know if path exist //
-console.log(isExistsPath('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders')); // true
-console.log(isExistsPath('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\foldersunexist')); // false
+console.log(isExistsPath(existPath)); // true
+console.log(isExistsPath(noExistPath)); // false
 
 // H3: know if path is absolute //
-console.log(isAbsolutePath('folders\\folderA')); // false
-console.log(isAbsolutePath('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA')); // true
+console.log(isAbsolutePath(relativePath)); // false
+console.log(isAbsolutePath(absolutePath)); // true
 
 // H4:convert path in absolute //
-console.log(convertPathInAbsolute('folders\\folderA')); // C:\Users\Rouss\Desktop\LABORATORIA\LIM016-md-links\folders\folderA
+console.log(convertPathInAbsolute(relativePath)); // C:\Users\Rouss\Desktop\LABORATORIA\LIM016-md-links\folders\folderA
 
 // H5: Know is a file //
-console.log(isPathAFile('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB')); // false
-console.log(isPathAFile('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB\\filemdF.md')); // true
+console.log(isPathAFile(folderPath)); // false
+console.log(isPathAFile(mdFilePath)); // true
 
 // H5: know if path is a directory //
-console.log(isPathADirectory('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB')); // true
-console.log(isPathADirectory('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB\\filemdF.md')); // false
+console.log(isPathADirectory(folderPath)); // true
+console.log(isPathADirectory(mdFilePath)); // false
 
 // H6: Read the directory //
-console.log(readADirectory('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC')); // ['filemdD.md', 'filemdE.md', 'folderD']
+console.log(readADirectory(directoryPath)); // ['filemdD.md', 'filemdE.md', 'folderD']
 
 // H6: Validate if the extension is md//
-console.log(isExtMd('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\filemdH.md')); // true
-console.log(isExtMd('C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\filetxt.txt')); // false
+console.log(isExtMd(mdFilePath)); // true
+console.log(isExtMd(txtFilePath)); // false
