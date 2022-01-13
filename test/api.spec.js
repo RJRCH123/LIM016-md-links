@@ -39,10 +39,10 @@ describe('function to check and convert in absolute if path is relative:', () =>
     expect(typeof validatePathAbsolute).toBe('function');
   });
   it('If the path is relative, return absolute path', () => {
-    expect(validatePathAbsolute(relativePath).toEqual(absolutePath));
+    expect(validatePathAbsolute(relativePath)).toEqual(absolutePath);
   });
   it('If the field is empty, return message', () => {
-    expect(validatePathAbsolute()).toEqual('The path does not exit');
+    expect(validatePathAbsolute()).toEqual('The path does not exist');
   });
 });
 
