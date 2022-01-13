@@ -43,6 +43,30 @@ const readADirectory = (content) => fs.readdirSync(content);
     return false;
   };
 
+// H6: Go through directory //
+
+const getFileFromFolder = (content) => {
+  let filesInArray = [];
+  // if is a directory
+  if (isPathADirectory(content)) {
+    // go through files in
+    readADirectory(content).forEach((file) => {
+      // connect path with each file
+      const connectPath = path.join(content, file);
+      // give absolute path 
+      const resolvePath = getFileFromFolder(path.resolve(connectPath));
+      // connect all routes found in a array
+      filesInArray = filesInArray.concant(resolvePath);
+    });
+  } else if (isExtMd(content)) {
+    // if is md file, connect all in an array
+    filesInArray.push(content);
+  }
+  return filesInArray;
+};
+
+
+
 module.exports = {
   isExistsPath,
   isAbsolutePath,
@@ -50,5 +74,6 @@ module.exports = {
   isPathAFile,
   isPathADirectory,
   readADirectory,
-  isExtMd
+  isExtMd,
+  getFileFromFolder
 }
