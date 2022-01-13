@@ -15,6 +15,9 @@
 // console.log(chalkStyle.dim('Hello World'));
 // console.log(customStyle('Hello World'));
 
+// libraries
+// const fetch = require('node-fetch');
+
 // file sistem
 const fs = require('fs');
 const path = require('path');
@@ -35,32 +38,29 @@ const isPathADirectory = (content) => fs.statSync(content).isDirectory();
 const readADirectory = (content) => fs.readdirSync(content);
 
 // H6: Validate the extension //
-  const isExtMd = (content) => path.extname(content) === '.md';
+const isExtMd = (content) => path.extname(content) === '.md';
 
 // H7: Read file 
 const readFile = (content) => fs.readFileSync(content, 'utf8');
 
-// H6: Get the paths from go through directory//
+// H6: Get md files from go through directory //
 
 const getFilesFromFolder = (content) => {
   let filesInArray = [];
-  // if is a directory
-  if (isPathADirectory(content)) {
-    // go through files in
-    readADirectory(content).forEach((file) => {
-      // connect path with each file
-      const connectPath = path.join(content, file);
-      // give absolute path 
-      const resolvePath = getFilesFromFolder(path.resolve(connectPath));
-      // connect all routes found in a array
-      filesInArray = filesInArray.concat(resolvePath);
-    });
-  } else if (isExtMd(content)) {
-    // if is md file, connect all in an array
+  if (isPathADirectory(content)) { // if is a directory
+    readADirectory(content).forEach((file) => { // go through files in
+      const connectPath = path.join(content, file); // connect path with each file
+      const resolvePath = getFilesFromFolder(path.resolve(connectPath)); // give absolute path 
+      filesInArray = filesInArray.concat(resolvePath); // connect all routes found in a array
+    }); 
+  } else if (isExtMd(content)) { // if is md file, connect all in an array
     filesInArray.push(content);
   }
   return filesInArray;
 };
+
+
+
 
 
 
@@ -74,5 +74,6 @@ module.exports = {
   readADirectory,
   isExtMd,
   readFile,
-  getFilesFromFolder
+  getFilesFromFolder,
+
 }
