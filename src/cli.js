@@ -20,8 +20,8 @@ const [, , ...argument] = process.argv;
 if (argument.length === 1) {
   mdLinksFunction(argument[0], { validate: false })
   .then(resolve => {
-    resolve.map((objeto) => {
-    console.log(customStyle.blue(`${objeto.file} | ${objeto.text} | ${objeto.href}`));
+    resolve.map((object) => {
+    console.log(customStyle.blue(`${object.file} | ${object.text} | ${object.href}`));
     })
   })
   .catch(reject => console.log(reject));
@@ -34,10 +34,10 @@ if (argument.length === 2) {
   case '--validate':
     mdLinks(argument[0], { validate: true })
     .then(resolve => {
-      resolve.map((objeto) => {
+      resolve.map((object) => {
       console.log(customStyle.blue(`
-      ${objeto.file} | ${objeto.text} |
-      ${objeto.href} | ${objeto.statusText} | ${objeto.message}`));
+      ${object.file} | ${object.text} |
+      ${object.href} | ${object.statusText} | ${object.message}`));
       })
     })
     .catch(reject => console.log(customStyle.red(reject)));
