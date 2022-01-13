@@ -1,11 +1,12 @@
 const {   
   isExistsPath,
-  isAbsolutePath,
-  convertPathInAbsolute,
+  validatePathAbsolute,
   isPathAFile,
   isPathADirectory,
   readADirectory,
-  isExtMd
+  isExtMd,
+  readFile,
+  getFilesFromFolder
 } = require('../src/api');
 
 const existPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders';
@@ -16,7 +17,8 @@ const folderPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\fol
 const mdFilePath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderB\\filemdF.md';
 const txtFilePath= 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\filetxt.txt';
 const directoryPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
-const readDirectoryPath = "['filemdD.md', 'filemdE.md', 'folderD']";
+const readDirectoryPath = ['filemdD.md', 'filemdE.md', 'folderD'];
+const contentDirectoryPaths = [ 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\filemdD.md','C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\filemdE.md','C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\folderD\\filemdB.md'];
 
 // H1: know if path exist //
 describe('function to check if path exists:', () => {
@@ -31,26 +33,16 @@ describe('function to check if path exists:', () => {
   });
 });
 
-// H3: know if path is absolute //
-describe('function to check if path is absolute:', () => {
-  it('isAbsolutePath is a function', () => {
-    expect(typeof isAbsolutePathh).toBe('function');
+// H3: know if path is absolute, H4:convert path in absolute and H2: message if does not exist //
+describe('function to check and convert in absolute if path is relative:', () => {
+  it('validatePathAbsolute is a function', () => {
+    expect(typeof validatePathAbsolute).toBe('function');
   });
-  it('If the path absolute, return true', () => {
-    expect(isAbsolutePath(absolutePath)).toBe(true);
+  it('If the path is relative, return absolute path', () => {
+    expect(validatePathAbsolute(relativePath).toEqual(absolutePath));
   });
-  it('If the path does not absolute, return false', () => {
-    expect(isAbsolutePath(relativePath)).toBe(false);
-  });
-});
-
-// H4:convert path in absolute //
-describe('function to convert path in absolute:', () => {
-  it('convertPathInAbsolute is a function', () => {
-    expect(typeof convertPathInAbsolute).toBe('function');
-  });
-  it('If the path is relative, convert in absolute', () => {
-    expect(convertPathInAbsolute(relativePath)).toEqual(absolutePath);
+  it('If the field is empty, return message', () => {
+    expect(validatePathAbsolute()).toEqual('The path does not exit');
   });
 });
 
@@ -103,3 +95,22 @@ describe('function to validate if the extension is md:', () => {
   });
 });
 
+// H7: Read file 
+describe('function to read file:', () => {
+  it('readFile is a function', () => {
+    expect(typeof readFile).toBe('function');
+  });
+  it('read file', () => {
+    expect(readFile(txtFilePath)).toEqual('text');
+  });
+});
+
+// H6: Get the paths from go through directory //
+describe('function to get content paths in directory:', () => {
+  it('getFilesFromFolder is a function', () => {
+    expect(typeof getFilesFromFolder).toBe('function');
+  });
+  it('Get the paths from go through directory', () => {
+    expect(getFilesFromFolder(directoryPath)).toEqual(contentDirectoryPaths);
+  });
+});

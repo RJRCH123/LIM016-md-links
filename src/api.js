@@ -1,6 +1,10 @@
 // chalk dependencie //
 // const chalkStyle = require('chalkStyle');
 
+// customStyleRed = chalkStyle.italic.bold.red;
+// customStyleGreen = chalkStyle.italic.bold.green;
+// customStyleBlue = chalkStyle.italic.bold.blue;
+
 // customStyle = chalkStyle.bold.red;
 // console.log(chalkStyle.blue('Hello World'));
 // console.log(chalkStyle.bgGreen('Hello World'));
@@ -18,11 +22,8 @@ const path = require('path');
 // H1: know if path exist //
 const isExistsPath = (content) => fs.existsSync(content); // true o false
 
-// H3: know if path is absolute //
-const isAbsolutePath = (content) => path.isAbsolute(content); // true o false
-
-// H4:convert path in absolute //
-const convertPathInAbsolute = (content) => path.resolve(content);
+// H3: know if path is absolute, H4:convert path in absolute and H2: message if does not exist //
+const validatePathAbsolute = (content) => fs.existsSync(content) ? path.normalize(path.resolve(content)): "The path does not exist";
 
 // H5: Know if path is a file //
 const isPathAFile = (content) => fs.statSync(content).isFile();
@@ -43,9 +44,12 @@ const readADirectory = (content) => fs.readdirSync(content);
     return false;
   };
 
-// H6: Go through directory //
+// H7: Read file 
+const readFile = (content) => fs.readFileSync(content, 'utf-8');
 
-const getFileFromFolder = (content) => {
+// H6: Get the paths from go through directory//
+
+const getFilesFromFolder = (content) => {
   let filesInArray = [];
   // if is a directory
   if (isPathADirectory(content)) {
@@ -54,9 +58,9 @@ const getFileFromFolder = (content) => {
       // connect path with each file
       const connectPath = path.join(content, file);
       // give absolute path 
-      const resolvePath = getFileFromFolder(path.resolve(connectPath));
+      const resolvePath = getFilesFromFolder(path.resolve(connectPath));
       // connect all routes found in a array
-      filesInArray = filesInArray.concant(resolvePath);
+      filesInArray = filesInArray.concat(resolvePath);
     });
   } else if (isExtMd(content)) {
     // if is md file, connect all in an array
@@ -67,13 +71,15 @@ const getFileFromFolder = (content) => {
 
 
 
+
+
 module.exports = {
   isExistsPath,
-  isAbsolutePath,
-  convertPathInAbsolute,
+  validatePathAbsolute,
   isPathAFile,
   isPathADirectory,
   readADirectory,
   isExtMd,
-  getFileFromFolder
+  readFile,
+  getFilesFromFolder
 }

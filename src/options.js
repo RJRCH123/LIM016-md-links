@@ -1,4 +1,8 @@
-const chalkStyle = require('chalk');
+// const chalkStyle = require('chalk');
+// customStyleYellow = chalkStyle.italic.yellow;
+// customStyleRed = chalkStyle.italic.bold.red;
+// customStyleGreen = chalkStyle.italic.bold.green;
+// customStyleBlue = chalkStyle.italic.bold.blue;
 
 // functions for get count status (total, unique, broken)
   // new Set se usa para obtener elementos únicos en un array

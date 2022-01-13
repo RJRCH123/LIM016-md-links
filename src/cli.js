@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-const chalkStyle = require('chalk');
-const customStyle = chalkStyle.italic;
+// const chalkStyle = require('chalk');
+// customStyleYellow = chalkStyle.italic.yellow;
+// customStyleRed = chalkStyle.italic.bold.red;
+// customStyleGreen = chalkStyle.italic.bold.green;
+// customStyleBlue = chalkStyle.italic.bold.blue;
 const {   
   totalLinks,
   uniqueLinks,
@@ -21,7 +24,7 @@ if (argument.length === 1) {
   mdLinksFunction(argument[0], { validate: false })
   .then(resolve => {
     resolve.map((object) => {
-    console.log(customStyle.blue(`${object.file} | ${object.text} | ${object.href}`));
+    console.log(`${object.file} | ${object.text} | ${object.href}`);
     })
   })
   .catch(reject => console.log(reject));
@@ -35,12 +38,12 @@ if (argument.length === 2) {
     mdLinks(argument[0], { validate: true })
     .then(resolve => {
       resolve.map((object) => {
-      console.log(customStyle.blue(`
+      console.log(`
       ${object.file} | ${object.text} |
-      ${object.href} | ${object.statusText} | ${object.message}`));
+      ${object.href} | ${object.statusText} | ${object.message}`);
       })
     })
-    .catch(reject => console.log(customStyle.red(reject)));
+    .catch(reject => console.log(reject));
     break;
 
   case '--stats':
@@ -50,7 +53,7 @@ if (argument.length === 2) {
     break;
 
   case '--help':
-    console.log(customStyle.yellow(`
+    console.log(`
     +____________________+_________________________________________________________+
     |      Comands       |                         Output                          |
     +____________________+_________________________________________________________+
@@ -66,10 +69,10 @@ if (argument.length === 2) {
     +____________________+_________________________________________________________+
     | --help             | Print comands list.                                     |
     +____________________+_________________________________________________________+
-    `))
+    `)
     break;
 
-  default: console.log(customStyle.red('Invalid comand. If you need help, please type --help'));
+  default: console.log('Invalid comand. If you need help, please type --help');
     break;
   }
 }
@@ -83,9 +86,9 @@ if (argument.length === 3) {
   ) {
     mdLinks(argument[0], { validate: true })
       .then(resolve => console.log(`${totalLinks(resolve)} \nUnique: ${uniqueLinks(resolve)} ${brokenLinks(resolve)}`))
-      .catch(reject => console.log(customStyle.red(reject)));
+      .catch(reject => console.log(reject));
   } else {
-    console.log(customStyle.red('Invalid comand. If you need help, please type --help'));
+    console.log('Invalid comand. If you need help, please type --help');
   }
 }
 
