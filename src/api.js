@@ -29,16 +29,16 @@ const isExistsPath = (content) => fs.existsSync(content); // true o false
 const validatePathAbsolute = (content) => fs.existsSync(content) ? path.normalize(path.resolve(content)): "The path does not exist";
 
 // H5: Know if path is a file //
-const isPathAFile = (content) => fs.statSync(content).isFile();
+const isPathAFile = (content) => fs.statSync(content).isFile(); // true o false
 
 // H5: know if path is a directory //
-const isPathADirectory = (content) => fs.statSync(content).isDirectory();
+const isPathADirectory = (content) => fs.statSync(content).isDirectory(); // true o false
 
 // H6: Read the directory //
 const readADirectory = (content) => fs.readdirSync(content);
 
 // H6: Validate the extension //
-const isExtMd = (content) => path.extname(content) === '.md';
+const isExtMd = (content) => path.extname(content) === '.md'; // true o false
 
 // H7: Read file 
 const readFile = (content) => fs.readFileSync(content, 'utf8');

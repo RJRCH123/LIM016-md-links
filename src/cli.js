@@ -10,7 +10,7 @@ const {
   brokenLinks 
 } = require('./options.js');
 
-const mdLinksFunction = require('./md-links.js');
+const mdLinksFunction = require('../src/md-links.js');
 
 // For use arguments
 const [, , ...argument] = process.argv;
@@ -35,7 +35,7 @@ if (argument.length === 1) {
 if (argument.length === 2) {
   switch (argument[1]) {
   case '--validate':
-    mdLinks(argument[0], { validate: true })
+    mdLinksFunction(argument[0], { validate: true })
     .then(resolve => {
       resolve.map((object) => {
       console.log(`
@@ -47,7 +47,7 @@ if (argument.length === 2) {
     break;
 
   case '--stats':
-    mdLinks(argument[0], { validate: true })
+    mdLinksFunction(argument[0], { validate: true })
       .then(resolve => console.log(`${totalLinks(resolve)} \nUnique: ${uniqueLinks(resolve)}`))
       .catch(reject => console.log(reject));
     break;
@@ -84,7 +84,7 @@ if (argument.length === 3) {
     (argument[1] === "--stats" && argument[2] === "--validate") ||
     (argument[1] === "--validate" && argument[2] === "--stats")
   ) {
-    mdLinks(argument[0], { validate: true })
+    mdLinksFunction(argument[0], { validate: true })
       .then(resolve => console.log(`${totalLinks(resolve)} \nUnique: ${uniqueLinks(resolve)} ${brokenLinks(resolve)}`))
       .catch(reject => console.log(reject));
   } else {

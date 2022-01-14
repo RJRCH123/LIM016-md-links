@@ -22,9 +22,11 @@ const directoryPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\
 console.log('isExistsPath: ', isExistsPath(existPath)); // true
 console.log('isExistsPath: ', isExistsPath(noExistPath)); // false
 
-// H3: know if path is absolute, H4:convert path in absolute and H2: message if does not exist//
-console.log('validatePathAbsolute: ', validatePathAbsolute(relativePath)); // C:\Users\Rouss\Desktop\LABORATORIA\LIM016-md-links\folders\folderA
-console.log('validatePathAbsolute: ', validatePathAbsolute(absolutePath)); // C:\Users\Rouss\Desktop\LABORATORIA\LIM016-md-links\folders\folderA
+// H4:convert path in absolute
+console.log('validatePathAbsolute: ', validatePathAbsolute(relativePath)); // absolutePath
+// H3: know if path is absolute
+console.log('validatePathAbsolute: ', validatePathAbsolute(absolutePath)); // absolutePath
+// H2: message if does not exist
 console.log('validatePathAbsolute: ', validatePathAbsolute()); // The path does not exit
 
 // H5: Know is a file //
@@ -48,3 +50,5 @@ console.log('getFilesFromFolder: ', getFilesFromFolder(directoryPath)); // [ 'C:
 // H7: Read file 
 console.log('mdFilePath:', readFile(mdFilePath)); // content
 console.log('txtFilePath:', readFile(txtFilePath)); // content
+
+// LF to CRLF: git config --global core.autocrlf true
