@@ -1,3 +1,21 @@
+
+// LF to CRLF: git config --global core.autocrlf true
+// chalk dependencie //
+// const chalkStyle = require('chalkStyle');
+
+// customStyleRed = chalkStyle.italic.bold.red;
+// customStyleGreen = chalkStyle.italic.bold.green;
+// customStyleBlue = chalkStyle.italic.bold.blue;
+
+// customStyle = chalkStyle.bold.red;
+// console.log(chalkStyle.blue('Hello World'));
+// console.log(chalkStyle.bgGreen('Hello World'));
+// console.log(chalkStyle.underline('Hello World'));
+// console.log(chalkStyle.hex("#8BB5FF")('Hello World'));
+// console.log(chalkStyle.rg(0,191,93)('Hello World'));
+// console.log(chalkStyle.italic('Hello World'));
+// console.log(chalkStyle.dim('Hello World'));
+// console.log(customStyle('Hello World'));
 const {   
   isExistsPath,
   validatePathAbsolute,
@@ -7,7 +25,12 @@ const {
   isExtMd,
   readFile,
   getFilesFromFolder,
-} = require('./src/api.js');
+} = require('./src/api');
+
+const {   
+  getLinksInArray,
+  getvalidLinksInArray
+} = require('./src/validate');
 
 const existPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders';
 const noExistPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\foldersunexist';
@@ -48,7 +71,13 @@ console.log('isExtMd: ', isExtMd(txtFilePath)); // false
 console.log('getFilesFromFolder: ', getFilesFromFolder(directoryPath)); // [ 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\filemdD.md','C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\filemdE.md','C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC\\folderD\\filemdB.md']
 
 // H7: Read file 
-console.log('mdFilePath:', readFile(mdFilePath)); // content
-console.log('txtFilePath:', readFile(txtFilePath)); // content
+console.log('readFile: ', readFile(mdFilePath)); // content
+console.log('readFile: ', readFile(txtFilePath)); // content
 
-// LF to CRLF: git config --global core.autocrlf true
+// H8: Obtain links and put in a new array
+// H9: Validate False; output: href, text, file
+console.log('getLinksInArray: ', getLinksInArray(directoryPath)); 
+
+// H10: Validate is True; output: href; text; file; status; message(ok or fail)
+console.log('getvalidLinksInArrayy: ',  getvalidLinksInArray(directoryPath)); 
+

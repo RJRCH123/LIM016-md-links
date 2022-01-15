@@ -8,7 +8,7 @@ const {
   totalLinks,
   uniqueLinks,
   brokenLinks 
-} = require('./options.js');
+} = require('./status.js');
 
 const mdLinksFunction = require('../src/md-links.js');
 

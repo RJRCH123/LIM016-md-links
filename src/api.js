@@ -15,9 +15,6 @@
 // console.log(chalkStyle.dim('Hello World'));
 // console.log(customStyle('Hello World'));
 
-// libraries
-// const fetch = require('node-fetch');
-
 // file sistem
 const fs = require('fs');
 const path = require('path');
@@ -43,7 +40,7 @@ const isExtMd = (content) => path.extname(content) === '.md'; // true o false
 // H7: Read file 
 const readFile = (content) => fs.readFileSync(content, 'utf8');
 
-// H6: Get md files from go through directory //
+// H6: Get md files in array from go through directory //
 
 const getFilesFromFolder = (content) => {
   let filesInArray = [];
@@ -59,13 +56,6 @@ const getFilesFromFolder = (content) => {
   return filesInArray;
 };
 
-
-
-
-
-
-
-
 module.exports = {
   isExistsPath,
   validatePathAbsolute,
@@ -75,5 +65,4 @@ module.exports = {
   isExtMd,
   readFile,
   getFilesFromFolder,
-
 }

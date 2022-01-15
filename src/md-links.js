@@ -4,7 +4,7 @@
 // customStyleGreen = chalkStyle.italic.bold.green;
 // customStyleBlue = chalkStyle.italic.bold.blue;
 
-const api = require('./api.js');
+const api = require('./api.js').default;
 
 const mdLinksFunction = () => {
   

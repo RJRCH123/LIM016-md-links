@@ -10,9 +10,9 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "node index.js",
+    "start": "node index.js",
     "nodemon": "nodemon index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -33,11 +33,10 @@
   },
   "homepage": "https://github.com/RJRCH123/LIM016-md-links#readme",
   "devDependencies": {
-    "jest": "^27.4.7",
-    "nodemon": "^2.0.15"
+    "@types/node-fetch": "^3.0.3",
+    "jest": "^27.4.7"
   },
   "dependencies": {
-    "chalk": "^5.0.0",
-    "node-fetch": "^3.1.0"
+    "node-fetch": "^2.6.1"
   }
 }
