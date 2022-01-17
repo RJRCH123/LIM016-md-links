@@ -1,4 +1,4 @@
-const {   
+import {   
   isExistsPath,
   validatePathAbsolute,
   isPathAFile,
@@ -7,7 +7,7 @@ const {
   isExtMd,
   readFile,
   getFilesFromFolder
-} = require('../src/api');
+} from '../src/api.js';
 
 const existPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders';
 const noExistPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\foldersunexist';

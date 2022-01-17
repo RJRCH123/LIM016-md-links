@@ -78,7 +78,7 @@ console.log('readFile: ', styleContent(readFile(txtFilePath))); // content
 console.log('getLinksInArray: ', getLinksInArray(directoryPath)); 
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
-// console.log('getvalidLinksInArray: ',  getvalidLinksInArray(directoryPath)); 
+console.log('getvalidLinksInArray: ',  getvalidLinksInArray(directoryPath)); 
 
 // Status: total, unique, broken
 console.log('totalLinks: ', totalLinks('mdFilePath')); 

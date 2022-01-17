@@ -31,8 +31,3 @@ export const brokenLinks = (array) => {
   return `\n${msgBroken}`;
 };
 
-export default {
-  totalLinks,
-  uniqueLinks,
-  brokenLinks
-};

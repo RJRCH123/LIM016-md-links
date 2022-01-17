@@ -12,7 +12,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "nodemon": "nodemon index.js",
     "test": "jest --coverage"
   },
   "repository": {
@@ -22,9 +21,7 @@
   "keywords": [
     "md",
     "links",
-    "library",
     "markdown",
-    "path",
     "node"
   ],
   "author": "Rosamaria Rodriguez",
@@ -34,7 +31,6 @@
   },
   "homepage": "https://github.com/RJRCH123/LIM016-md-links#readme",
   "devDependencies": {
-    "@types/node-fetch": "^3.0.3",
     "jest": "^27.4.7"
   },
   "dependencies": {

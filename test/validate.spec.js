@@ -1,7 +1,7 @@
-const {   
+import {   
   getLinksInArray,
   getvalidLinksInArray
-} = require('../src/validate');
+} from '../src/validate.js';
 
 const directoryPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
 const outputDirectoryPaths = [

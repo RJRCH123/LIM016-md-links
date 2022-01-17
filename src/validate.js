@@ -52,7 +52,3 @@ export const getvalidLinksInArray= (arrayLinks) => {
   return Promise.all(newArray); // return array with result promise
 };
 
-export default {
-  getLinksInArray,
-  getvalidLinksInArray
-}
