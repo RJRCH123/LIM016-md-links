@@ -1,15 +1,14 @@
-const {   
-  readFile,
-  getFilesFromFolder
-} = require('./api');
+import { 
+  readFile, 
+  getFilesFromFolder 
+} from './api.js';
 
 // libraries
-// const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 // H8: Obtain links and put in a new array
-
 // H9: Validate False; output: href, text, file
-const getLinksInArray = (pathFile) => {
+export const getLinksInArray = (pathFile) => {
   const linksInArray = [];
   getFilesFromFolder(pathFile).forEach((elmnt) => {
     const regExpTotal = /\[([\w\s\d.()]+)\]\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/mg;
@@ -30,7 +29,8 @@ const getLinksInArray = (pathFile) => {
 };
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
-const getvalidLinksInArray= (arrayLinks) => {
+export const getvalidLinksInArray= (arrayLinks) => {
+  console.log('arrayLinks: ', arrayLinks)
   const newArray = arrayLinks.map((elmnt) => { // go through array objects
     const promiseFetch = fetch(elmnt.href) // get href of object
       .then((result) => ({
@@ -52,7 +52,7 @@ const getvalidLinksInArray= (arrayLinks) => {
   return Promise.all(newArray); // return array with result promise
 };
 
-module.exports = {
+export default {
   getLinksInArray,
   getvalidLinksInArray
 }

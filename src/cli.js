@@ -1,16 +1,17 @@
 #!/usr/bin/env node
-// const chalkStyle = require('chalk');
-// customStyleYellow = chalkStyle.italic.yellow;
-// customStyleRed = chalkStyle.italic.bold.red;
-// customStyleGreen = chalkStyle.italic.bold.green;
-// customStyleBlue = chalkStyle.italic.bold.blue;
-const {   
-  totalLinks,
-  uniqueLinks,
-  brokenLinks 
-} = require('./status.js');
+import chalk from 'chalk';
 
-const mdLinksFunction = require('../src/md-links.js');
+styleTrue = chalk.bold.greenBright;
+styleFalse = chalk.bold.redBright;
+styleWarn = chalk.bold.yellowBright;
+styleContent = chalk.bold.cyan;
+stylePath = chalk.bold.magentaBright;
+
+import {
+  totalLinks, uniqueLinks, brokenLinks
+} from './status.js';
+
+import mdLinksFunction from '../src/md-links.js';
 
 // For use arguments
 const [, , ...argument] = process.argv;

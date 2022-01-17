@@ -1,36 +1,37 @@
-// const chalkStyle = require('chalk');
-// customStyleYellow = chalkStyle.italic.yellow;
-// customStyleRed = chalkStyle.italic.bold.red;
-// customStyleGreen = chalkStyle.italic.bold.green;
-// customStyleBlue = chalkStyle.italic.bold.blue;
+import chalk from 'chalk';
+
+const styleBroken = chalk.bold.red;
+// const styleWarn = chalk.bold.yellowBright;
+const styleTotal = chalk.bold.cyan;
+const styleUnique = chalk.bold.magentaBright;
 
 // functions for get count status (total, unique, broken)
   // new Set se usa para obtener elementos únicos en un array
   // ... para evitar que se cree otro []
   
 // status: total
-const totalLinks = (array) => {
+export const totalLinks = (array) => {
   const total = array.length;
-  const msgTotal = chalkStyle.italic.blue(`Total: ${total}`);
+  const msgTotal = styleTotal(`Total: ${total}`);
   return `${msgTotal}`;
 }
 
 // status: unique
-const uniqueLinks = (array) => {
+export const uniqueLinks = (array) => {
   let unique = array.map((link) => link.href);
   unique = [...new Set(unique)].length;
-  const msgUnique = chalkStyle.italic.cyan(`Unique: ${unique}`);
+  const msgUnique = styleUnique(`Unique: ${unique}`);
   return `\n${msgUnique}`;
 }
 
 // status: broken
-const brokenLinks = (array) => {
+export const brokenLinks = (array) => {
   const broken = array.filter((link) => link.statusText === 'Fail');
-  const msgBroken = chalkStyle.italic.red(`Broken: ${broken.length}`);
+  const msgBroken = styleBroken(`Broken: ${broken.length}`);
   return `\n${msgBroken}`;
 };
 
-module.exports = {
+export default {
   totalLinks,
   uniqueLinks,
   brokenLinks
