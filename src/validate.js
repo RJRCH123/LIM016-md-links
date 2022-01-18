@@ -30,7 +30,8 @@ export const getLinksInArray = (pathFile) => {
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 export const getvalidLinksInArray= (arrayLinks) => {
-  console.log('arrayLinks: ', arrayLinks)
+  // console.log('arrayLinks: ', arrayLinks);
+  // arrayLinks = outputDirectoryPaths;
   const newArray = arrayLinks.map((elmnt) => { // go through array objects
     const promiseFetch = fetch(elmnt.href) // get href of object
       .then((result) => ({
@@ -47,8 +48,13 @@ export const getvalidLinksInArray= (arrayLinks) => {
         status: 'Failed request',
         message: 'Fail',
       }));
-    return promiseFetch; // return promise
+      return promiseFetch; // return promise
+      // console.log('arrayLinks: ', arrayLinks);
+      // console.log('promiseFetch: ', promiseFetch.then((result) => console.log(result)))
+      // promiseFetch.then((result) => {return result}); // return promise
+      // return Promise.all(promiseFetch);
   });
   return Promise.all(newArray); // return array with result promise
+  // Promise.all([...newArray]).then((result) => {return result}); // return array with result promise
 };
 
