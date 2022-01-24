@@ -83,6 +83,6 @@ getvalidLinksInArray(getLinksInArray(directoryPath))
 
 
 // Status: total, unique, broken
-// console.log('totalLinks: ', totalLinks(mdFilePath)); 
-// console.log('uniqueLinks: ', uniqueLinks(mdFilePath)); 
-// console.log('brokenLinks: ', brokenLinks(mdFilePath)); 
+console.log(totalLinks(getLinksInArray(directoryPath))); 
+console.log(uniqueLinks(getLinksInArray(directoryPath))); 
+console.log(brokenLinks(getLinksInArray(directoryPath))); 

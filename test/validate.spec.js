@@ -6,7 +6,7 @@ import fetch from 'node-fetch';
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 // status: '200' - message: 'Ok'
-describe('getvalidLinksInArray', () => {
+describe('getvalidLinksInArray  is a function', () => {
   test("status: 200 - message: 'Ok'", () => {
     const recieveObject = [
       {
@@ -36,7 +36,7 @@ describe('getvalidLinksInArray', () => {
 });
 
 // status: '404' - message: 'Fail'
-describe('getvalidLinksInArray', () => {
+describe('getvalidLinksInArray is a function', () => {
   test("status: 404 - message: 'Fail'", () => {
     const recieveObject = [
       {
@@ -66,7 +66,7 @@ describe('getvalidLinksInArray', () => {
 });
 
 // status: 'Failed request' - message: 'Fail'
-describe('getvalidLinksInArray', () => {
+describe('getvalidLinksInArray  is a function', () => {
   test("status: 'Failed request' - message: 'Fail'", () => {
     const recieveObject = [
       {

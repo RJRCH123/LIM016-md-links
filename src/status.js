@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
-const styleBroken = chalk.bold.red;
 // const styleWarn = chalk.bold.yellowBright;
+const styleBroken = chalk.bold.red;
 const styleTotal = chalk.bold.cyan;
 const styleUnique = chalk.bold.magentaBright;
 
