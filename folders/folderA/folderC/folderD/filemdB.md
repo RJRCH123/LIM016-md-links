@@ -33,7 +33,7 @@
   <details><summary>Links</summary><p>
 
   * [File system - Documentación oficial (en inglés)](https://nodejs.org/api/fs.html)
-  * [Path - Documentación oficial (en inglés)](https://nodejs.org/api/path.html)
+  * [Path - Documentación oficial (en inglés)](https://nodejs.org/api/pathhtml)
 </p></details>
 
 ### Control de Versiones (Git y GitHub)
@@ -50,7 +50,7 @@
 
   <details><summary>Links</summary><p>
 
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
+  * [Sitio oficial de GitHub Pages](https://pages.github.co/)
 </p></details>
 
 - [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**

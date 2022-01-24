@@ -8,11 +8,11 @@ import   {
   readADirectory,
   isExtMd,
   readFile,
-  getFilesFromFolder
+  getFilesFromFolder,
+  getLinksInArray
 } from './src/api.js';
 
 import {   
-  getLinksInArray,
   getvalidLinksInArray
 } from './src/validate.js';
 
@@ -75,12 +75,14 @@ console.log('readFile: ', styleContent(readFile(txtFilePath))); // content
 
 // H8: Obtain links and put in a new array
 // H9: Validate False; output: href, text, file
-console.log('getLinksInArray: ', getLinksInArray(directoryPath)); 
+console.log('getLinksInArray: ', getLinksInArray(directoryPath));  
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
-console.log(getvalidLinksInArray(getLinksInArray(directoryPath))); 
+// console.log(getvalidLinksInArray(getLinksInArray(directoryPath))); 
+getvalidLinksInArray(getLinksInArray(directoryPath))
+
 
 // Status: total, unique, broken
-// console.log('totalLinks: ', totalLinks('mdFilePath')); 
-// console.log('uniqueLinks: ', uniqueLinks('mdFilePath')); 
-// console.log('brokenLinks: ', brokenLinks('mdFilePath')); 
+// console.log('totalLinks: ', totalLinks(mdFilePath)); 
+// console.log('uniqueLinks: ', uniqueLinks(mdFilePath)); 
+// console.log('brokenLinks: ', brokenLinks(mdFilePath)); 
