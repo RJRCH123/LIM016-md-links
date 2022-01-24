@@ -5,9 +5,9 @@ import {
 import fetch from 'node-fetch';
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
-
+// status: '200' - message: 'Ok'
 describe('getvalidLinksInArray', () => {
-  test('statusText: OK', () => {
+  test("status: 200 - message: 'Ok'", () => {
     const recieveObject = [
       {
         href: 'https://docs.npmjs.com/getting-started/publishing-npm-packages',
@@ -26,17 +26,48 @@ describe('getvalidLinksInArray', () => {
     ];
     fetch.mockImplementation(() => Promise.resolve({
       status: 200,
-      statusText: 'OK',
+      message: 'Ok',
     }));
     return getvalidLinksInArray(recieveObject)
-      .then((result) => {
-        expect(result).toEqual(resultObject);
-      });
+    .then((result) => {
+      expect(result).toEqual(resultObject);
+    })
   });
 });
 
+// status: '404' - message: 'Fail'
 describe('getvalidLinksInArray', () => {
-  test('statusText: Fail', () => {
+  test("status: 404 - message: 'Fail'", () => {
+    const recieveObject = [
+      {
+        href: 'https://nodejs.org/api/path.htm',
+        text: 'Path',
+        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+      },
+    ];
+    const resultObject = [
+      {
+        href: 'https://nodejs.org/api/path.htm',
+        text: 'Path',
+        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+        status: 404,
+        message: 'Fail',
+      },
+    ];
+    fetch.mockImplementation(() => Promise.resolve({
+      status: 404,
+      message: 'Fail',
+    }));
+    return getvalidLinksInArray(recieveObject)
+    .then((result) => {
+      expect(result).toEqual(resultObject);
+    })
+  });
+});
+
+// status: 'Failed request' - message: 'Fail'
+describe('getvalidLinksInArray', () => {
+  test("status: 'Failed request' - message: 'Fail'", () => {
     const recieveObject = [
       {
         href: 'https://pages.github.co/',
@@ -58,8 +89,8 @@ describe('getvalidLinksInArray', () => {
       message: 'Fail',
     })));
     return getvalidLinksInArray(recieveObject)
-      .then((result) => {
-        expect(result).toEqual(resultObject);
-      });
+    .then((result) => {
+      expect(result).toEqual(resultObject);
+    })
   });
 });
