@@ -3,6 +3,7 @@ import {
 } from '../src/validate.js';
 
 import fetch from 'node-fetch';
+jest.mock('fetch');
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 // status: '200' - message: 'Ok'

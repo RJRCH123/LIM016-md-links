@@ -7,26 +7,75 @@ const styleUnique = chalk.bold.magentaBright;
 
 const status = [
   {
+    href: 'https://www.youtube.com/watch?v=Lub5qOmY4JQ',
+    text: 'recurso',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 200,
+    message: 'Ok'
+  },
+  {
+    href: 'https://github.co/workshopper/learnyounode',
+    text: 'learnyounode',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 200,
+    message: 'Ok'
+  },
+  {
+    href: 'https://www.genbeta.com/desarrollo/node-js-y-npm',
+    text: 'Node.js y npm',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 200,
+    message: 'Ok'
+  },
+  {
+    href: 'https://docs.npmjs.co/getting-started/what-is-npm',
+    text: 'NPM',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 'Failed request',
+    message: 'Fail'
+  },
+  {
     href: 'https://docs.npmjs.com/getting-started/publishing-npm-packages',
     text: 'Publicar packpage',
     file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
     status: 200,
-    message: 'Ok',
+    message: 'Ok'
+  },
+  {
+    href: 'https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback',
+    text: 'Leer un archivo',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 200,
+    message: 'Ok'
+  },
+  {
+    href: 'https://nodejs.org/api/fs.htm#fs_fs_readdir_path_options_callback',
+    text: 'Leer un directorio',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 404,
+    message: 'Fail'
   },
   {
     href: 'https://nodejs.org/api/path.htm',
     text: 'Path',
     file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
     status: 404,
-    message: 'Fail',
+    message: 'Fail'
+  },
+  {
+    href: 'https://medium.co/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e',
+    text: 'Linea de comando CLI',
+    file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+    status: 'Failed request',
+    message: 'Fail'
   },
   {
     href: 'https://pages.github.co/',
     text: 'Sitio oficial de GitHub Pages',
     file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
     status: 'Failed request',
-    message: 'Fail',
-  },
+    message: 'Fail'
+  }
 ];
 
 describe('Output: Total links', () => {
@@ -34,7 +83,7 @@ describe('Output: Total links', () => {
     expect(typeof totalLinks).toBe('function');
   });
   it('Output: Total links', () => {
-    const total = styleTotal('Total: 3');
+    const total = styleTotal('Total: 10');
     const content = `${total}`;
     expect(totalLinks(stats)).toBe(content);
   });
@@ -45,7 +94,7 @@ describe('Output: Unique links', () => {
     expect(typeof uniqueLinks).toBe('function');
   });
   it('Output: Unique links', () => {
-    const unique = styleUnique('Unique: 3');
+    const unique = styleUnique('Unique: 10');
     const content = `${unique}`;
     expect(uniqueLinks(status)).toBe(content);
   });
