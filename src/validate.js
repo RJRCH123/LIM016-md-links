@@ -1,4 +1,3 @@
-// libraries
 import fetch from 'node-fetch';
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)

@@ -1,3 +1,5 @@
+
+
 import {mdLinksFunction} from '../src/md-links';
 
 const path = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
@@ -52,9 +54,6 @@ describe('mdLinksFunction', () => {
     expect(mdLinksFunction(path, { validate: false })).resolves.toEqual(validateFalse);
   });
   it('validate true / output: href; text; file, status, message Ok', () => {
-    expect(mdLinksFunction(path, { validate: true })).resolves.toEqual(validateTrue);
-  });
-  it('validate true / output: href; text; file, status, message Fail', () => {
     expect(mdLinksFunction(path, { validate: true })).resolves.toEqual(validateTrue);
   });
 });

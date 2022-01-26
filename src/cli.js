@@ -1,11 +1,4 @@
 #!/usr/bin/env node
-import chalk from 'chalk';
-
-styleTrue = chalk.bold.greenBright;
-styleFalse = chalk.bold.redBright;
-styleWarn = chalk.bold.yellowBright;
-styleContent = chalk.bold.cyan;
-stylePath = chalk.bold.magentaBright;
 
 import {
   totalLinks, uniqueLinks, brokenLinks
@@ -40,8 +33,8 @@ if (argument.length === 2) {
     .then(resolve => {
       resolve.map((object) => {
       console.log(`
-      ${object.file} | ${object.text} |
-      ${object.href} | ${object.statusText} | ${object.message}`);
+      ${object.href} | ${object.text} |
+      ${object.file} | ${object.status} | ${object.message}`);
       })
     })
     .catch(reject => console.log(reject));

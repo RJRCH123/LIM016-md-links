@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import chalk from '../__mocks__/chalk.js';
 
 // const styleWarn = chalk.bold.yellowBright;
 const styleBroken = chalk.bold.red;

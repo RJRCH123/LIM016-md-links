@@ -1,5 +1,6 @@
+import chalk from '../__mocks__/chalk.js';
 import {totalLinks, uniqueLinks, brokenLinks} from '../src/status';
-import chalk from 'chalk';
+
 
 const styleBroken = chalk.bold.red;
 const styleTotal = chalk.bold.cyan;
@@ -85,7 +86,7 @@ describe('Output: Total links', () => {
   it('Output: Total links', () => {
     const total = styleTotal('Total: 10');
     const content = `${total}`;
-    expect(totalLinks(stats)).toBe(content);
+    expect(totalLinks(status)).toBe(content);
   });
 });
 
@@ -106,7 +107,7 @@ describe('Output: Broken links', () => {
   });
   it('Output: Broken links', () => {
     const broken = styleBroken('Broken: 0');
-    const content = broken;
+    const content = `${broken}`;
     expect(brokenLinks(status)).toBe(content);
   });
 });

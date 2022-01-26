@@ -1,9 +1,11 @@
+import {jest} from '@jest/globals';
+
 import {   
   getvalidLinksInArray
 } from '../src/validate.js';
 
 import fetch from 'node-fetch';
-jest.mock('fetch');
+jest.mock('node-fetch');
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 // status: '200' - message: 'Ok'
@@ -28,36 +30,6 @@ describe('getvalidLinksInArray  is a function', () => {
     fetch.mockImplementation(() => Promise.resolve({
       status: 200,
       message: 'Ok',
-    }));
-    return getvalidLinksInArray(recieveObject)
-    .then((result) => {
-      expect(result).toEqual(resultObject);
-    })
-  });
-});
-
-// status: '404' - message: 'Fail'
-describe('getvalidLinksInArray is a function', () => {
-  test("status: 404 - message: 'Fail'", () => {
-    const recieveObject = [
-      {
-        href: 'https://nodejs.org/api/path.htm',
-        text: 'Path',
-        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
-      },
-    ];
-    const resultObject = [
-      {
-        href: 'https://nodejs.org/api/path.htm',
-        text: 'Path',
-        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
-        status: 404,
-        message: 'Fail',
-      },
-    ];
-    fetch.mockImplementation(() => Promise.resolve({
-      status: 404,
-      message: 'Fail',
     }));
     return getvalidLinksInArray(recieveObject)
     .then((result) => {
