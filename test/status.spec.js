@@ -1,5 +1,5 @@
 import chalk from '../__mocks__/chalk.js';
-import {totalLinks, uniqueLinks, brokenLinks} from '../src/status';
+import {totalLinks, uniqueLinks, brokenLinks} from '../src/status.js';
 
 
 const styleBroken = chalk.bold.red;
@@ -86,6 +86,10 @@ describe('Output: Total links', () => {
   it('Output: Total links', () => {
     const total = styleTotal('Total: 10');
     const content = `${total}`;
+    // console.log('status: ', status);
+    // console.log('total: ', total);
+    // console.log('content: ', content);
+    // console.log('totalLinks(status): ', totalLinks(status));
     expect(totalLinks(status)).toBe(content);
   });
 });
@@ -97,6 +101,10 @@ describe('Output: Unique links', () => {
   it('Output: Unique links', () => {
     const unique = styleUnique('Unique: 10');
     const content = `${unique}`;
+    // console.log('status: ', status);
+    // console.log('unique: ', unique);
+    // console.log('content: ', content);
+    // console.log('uniqueLinks(status): ', uniqueLinks(status));
     expect(uniqueLinks(status)).toBe(content);
   });
 });
@@ -108,6 +116,10 @@ describe('Output: Broken links', () => {
   it('Output: Broken links', () => {
     const broken = styleBroken('Broken: 0');
     const content = `${broken}`;
+    // console.log('status: ', status);
+    // console.log('broken: ', broken);
+    // console.log('content: ', content);
+    // console.log('brokenLinks(status): ', brokenLinks(status));
     expect(brokenLinks(status)).toBe(content);
   });
 });

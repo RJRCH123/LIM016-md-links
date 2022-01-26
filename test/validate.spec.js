@@ -1,4 +1,6 @@
-import {jest} from '@jest/globals';
+import {
+  jest
+} from '@jest/globals';
 
 import {   
   getvalidLinksInArray
@@ -15,7 +17,7 @@ describe('getvalidLinksInArray  is a function', () => {
       {
         href: 'https://docs.npmjs.com/getting-started/publishing-npm-packages',
         text: 'Publicar packpage',
-        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC'
       },
     ];
     const resultObject = [
@@ -24,7 +26,7 @@ describe('getvalidLinksInArray  is a function', () => {
         text: 'Publicar packpage',
         file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
         status: 200,
-        message: 'Ok',
+        message: 'Ok'
       },
     ];
     fetch.mockImplementation(() => Promise.resolve({
@@ -45,7 +47,7 @@ describe('getvalidLinksInArray  is a function', () => {
       {
         href: 'https://pages.github.co/',
         text: 'Sitio oficial de GitHub Pages',
-        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
+        file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC'
       },
     ];
     const resultObject = [
@@ -54,7 +56,7 @@ describe('getvalidLinksInArray  is a function', () => {
         text: 'Sitio oficial de GitHub Pages',
         file: 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC',
         status: 'Failed request',
-        message: 'Fail',
+        message: 'Fail'
       },
     ];
     fetch.mockImplementation(() => Promise.reject(new Error({

@@ -1,11 +1,11 @@
 import   {
   validatePathAbsolute,
   getLinksInArray
-} from './api';
+} from './api.js';
 
 import {   
   getvalidLinksInArray
-} from './validate';
+} from './validate.js';
 
 export const mdLinksFunction = (track, options = { validate: true }) => new Promise((resolve) => {
   // convertir ruta en absoluta

@@ -4,7 +4,7 @@ import {
   totalLinks, uniqueLinks, brokenLinks
 } from './status.js';
 
-import mdLinksFunction from '../src/md-links.js';
+import mdLinksFunction from './md-links.js';
 
 // For use arguments
 const [, , ...argument] = process.argv;

@@ -1,6 +1,6 @@
 
 
-import {mdLinksFunction} from '../src/md-links';
+import {mdLinksFunction} from '../src/md-links.js';
 
 const path = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
 
