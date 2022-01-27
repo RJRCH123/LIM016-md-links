@@ -4,50 +4,23 @@ import {
   totalLinks, uniqueLinks, brokenLinks
 } from './status.js';
 
-import mdLinksFunction from './md-links.js';
+import {mdLinksFunction} from './md-links.js';
+import chalk from '../__mocks__/chalk.js';
 
+// const styleWarn = chalk.bold.yellowBright;
+const styleRed = chalk.bold.red;
+const styleCyan = chalk.bold.cyan;
 // For use arguments
 const [, , ...argument] = process.argv;
-
 
 // functions for content of comands
 
 // Si se encuentra un path //
 
 if (argument.length === 1) {
-  mdLinksFunction(argument[0], { validate: false })
-  .then(resolve => {
-    resolve.map((object) => {
-    console.log(`${object.file} | ${object.text} | ${object.href}`);
-    })
-  })
-  .catch(reject => console.log(reject));
-}
-
-// Si se encuentra un path y una option //
-
-if (argument.length === 2) {
-  switch (argument[1]) {
-  case '--validate':
-    mdLinksFunction(argument[0], { validate: true })
-    .then(resolve => {
-      resolve.map((object) => {
-      console.log(`
-      ${object.href} | ${object.text} |
-      ${object.file} | ${object.status} | ${object.message}`);
-      })
-    })
-    .catch(reject => console.log(reject));
-    break;
-
-  case '--stats':
-    mdLinksFunction(argument[0], { validate: true })
-      .then(resolve => console.log(`${totalLinks(resolve)} \nUnique: ${uniqueLinks(resolve)}`))
-      .catch(reject => console.log(reject));
-    break;
-
-  case '--help':
-    console.log(`
+  
+if (argument[0] === '--help') { 
+    console.log(styleCyan(`
     +____________________+_________________________________________________________+
     |      Comands       |                         Output                          |
     +____________________+_________________________________________________________+
@@ -63,10 +36,42 @@ if (argument.length === 2) {
     +____________________+_________________________________________________________+
     | --help             | Print comands list.                                     |
     +____________________+_________________________________________________________+
-    `)
+    `))
+} else {
+  mdLinksFunction(argument[0], { validate: false })
+  .then(resolve => {
+    resolve.map((object) => {
+    console.log(styleCyan(`File: ${object.file} \n Text: ${object.text} \n Href: ${object.href}`));
+    })
+  })
+  .catch(reject => console.log(reject));
+}
+};
+
+// Si se encuentra un path y una option //
+
+if (argument.length === 2) {
+
+  switch (argument[1]) {
+  case '--validate':
+    mdLinksFunction(argument[0], { validate: true })
+    .then(resolve => {
+      resolve.map((object) => {
+      console.log(styleCyan(`
+      Href: ${object.href} \n Text: ${object.text} \n
+      File: ${object.file} \n Status: ${object.status} \n Message: ${object.message}`));
+      })
+    })
+    .catch(reject => console.log(reject));
     break;
 
-  default: console.log('Invalid comand. If you need help, please type --help');
+  case '--stats':
+    mdLinksFunction(argument[0], { validate: true })
+      .then(resolve => console.log(`${totalLinks(resolve)} \n ${uniqueLinks(resolve)}`))
+      .catch(reject => console.log(reject));
+    break;
+
+  default: console.log(styleRed('Invalid comand. If you need help, please type --help'));
     break;
   }
 }
@@ -79,10 +84,10 @@ if (argument.length === 3) {
     (argument[1] === "--validate" && argument[2] === "--stats")
   ) {
     mdLinksFunction(argument[0], { validate: true })
-      .then(resolve => console.log(`${totalLinks(resolve)} \nUnique: ${uniqueLinks(resolve)} ${brokenLinks(resolve)}`))
+      .then(resolve => console.log(`${totalLinks(resolve)} \n ${uniqueLinks(resolve)} \n ${brokenLinks(resolve)}`))
       .catch(reject => console.log(reject));
   } else {
-    console.log('Invalid comand. If you need help, please type --help');
+    console.log(styleRed('Invalid comand. If you need help, please type --help'));
   }
 }
 

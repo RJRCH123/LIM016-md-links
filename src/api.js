@@ -46,8 +46,9 @@ export const getLinksInArray = (pathFile) => {
     const regExpTotal = /\[([\w\s\d.()]+)\]\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/mg;
     const regExpLinks = /\(((?:\/|https?:\/\/)[\w\d./?=#&_%~,.:-]+)\)/mg;
     const regExpText = /\[([\w\s\d.()]+)\]/g;
-    const links = readFile(elmnt).match(regExpTotal); // get [text](link)
+    const links = readFile(elmnt).match(regExpTotal)|| []; // get [text](link)
     links.forEach((e) => {
+      
       const resultLink = e.match(regExpLinks).join().slice(1, -1); // Join links and remove ()
       const resultText = e.match(regExpText).join().slice(1, -1); // Remove []
       linksInArray.push({

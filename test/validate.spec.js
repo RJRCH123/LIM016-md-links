@@ -1,13 +1,19 @@
+
+
 import {
   jest
 } from '@jest/globals';
+
+jest.mock('node-fetch', () => ({
+  fetch: (content) => {
+    console.log(content);
+  }
+}))
 
 import {   
   getvalidLinksInArray
 } from '../src/validate.js';
 
-import fetch from 'node-fetch';
-jest.mock('node-fetch');
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 // status: '200' - message: 'Ok'
@@ -29,10 +35,6 @@ describe('getvalidLinksInArray  is a function', () => {
         message: 'Ok'
       },
     ];
-    fetch.mockImplementation(() => Promise.resolve({
-      status: 200,
-      message: 'Ok',
-    }));
     return getvalidLinksInArray(recieveObject)
     .then((result) => {
       expect(result).toEqual(resultObject);
@@ -59,10 +61,6 @@ describe('getvalidLinksInArray  is a function', () => {
         message: 'Fail'
       },
     ];
-    fetch.mockImplementation(() => Promise.reject(new Error({
-      status: 'Failed request',
-      message: 'Fail',
-    })));
     return getvalidLinksInArray(recieveObject)
     .then((result) => {
       expect(result).toEqual(resultObject);

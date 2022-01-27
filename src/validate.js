@@ -21,6 +21,6 @@ export const getvalidLinksInArray= (arrayLinks) => {
         message: 'Fail',
       }));
       return promiseFetch; // return promise
-  })).then(result => console.log('Result: ', result));
+  })).then(result => result);
 };
 
