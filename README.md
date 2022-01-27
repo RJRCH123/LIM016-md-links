@@ -114,7 +114,7 @@ que hay dentro del link (truncado a 50 caracteres).
 ## 📌 `--help`
 
 <div align="center">
-<img src="./src/img/help.png" width="500">
+<img src="./src/img/help.png" width="600">
 </div>
 
 ## 📌 `--validate`
@@ -124,7 +124,7 @@ averiguar si el link funciona o no. Si el link resulta en una redirección a una
 URL que responde ok, entonces consideraremos el link como ok.
 
 <div align="center">
-<img src="./src/img/validate.png" width="500">
+<img src="./src/img/validate.png" width="600">
 </div>
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
@@ -137,7 +137,7 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 básicas sobre los links.
 
 <div align="center">
-<img src="./src/img/stats.png" width="500">
+<img src="./src/img/stats.png" width="600">
 </div>
 
 ## 📌 `--stats --validate` o `--validate --stats`
@@ -146,32 +146,32 @@ También podemos combinar `--stats` y `--validate` para obtener estadísticas qu
 necesiten de los resultados de la validación.
 
 <div align="center">
-<img src="./src/img/stat-validate.png" width="500">
+<img src="./src/img/stat-validate.png" width="600">
 </div>
 
 ## 📌 `--ro`
 
 <div align="center">
-<img src="./src/img/ro.png" width="500">
+<img src="./src/img/ro.png" width="600">
 </div>
 
 ## 📌 `Colocando solo el path`
 
 <div align="center">
-<img src="./src/img/path.png" width="500">
+<img src="./src/img/path.png" width="600">
 </div>
 
 ## 📌 `Colocando contenido inválido`
 
 <div align="center">
-<img src="./src/img/err.png" width="500">
+<img src="./src/img/err.png" width="600">
 </div>
 
 ***
 # 3. Resultados de los tests
 
 <div align="center">
-<img src="./src/img/test.png" width="500">
+<img src="./src/img/test.png" width="600">
 </div>
 
 # 4. Tecnologías empleadas 👩🏾‍💻
@@ -179,9 +179,8 @@ necesiten de los resultados de la validación.
 ## Para la Planificación ✍
 
 -   [Github Projects:](https://developer.mozilla.org/es/docs/Web/HTML) En este proyecto se utilizó la herramienta de planificación y organización de GitHub llamada **Github Projects**.Mediante **issues** y **milestones** podrás organizar y planificar tareas y objetivos concretos.
+Tomando en consideración los **entregables** del proyecto, se definió historias de usuario en base a `diagramas de flujos`, para crear la planificación.
 
-Tomando en consideración los **entregables** del proyecto, se definió historias de usuario en base a 
-`diagramas de flujos`, para crear la planificación.
 ## Para la estructura y diseño: ✍
 -   [Chalk:](https://www.npmjs.com/package/chalk)  Es una librería que ayuda a darle formato de estilo en el terminal.
 
