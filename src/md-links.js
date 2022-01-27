@@ -17,7 +17,7 @@ export const mdLinksFunction = (track, options = { validate: true }) => new Prom
   const path = convertToAbsolute(track);
   // if path does not exits
   if (isExistsPath(path) === false) {
-  // H2: message if does not exist
+  // message if does not exist
   styleBroken('Path does not exist')
     // if options validate is true
   } else if (options.validate) {
