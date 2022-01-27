@@ -3,9 +3,13 @@ import fs from 'fs';
 
 // H1: know if path exist //
 export const isExistsPath = (content) => fs.existsSync(content); // true o false
+// H3: know if path is absolute
+export const isAbsolutePath = (track) => path.isAbsolute(track); // true o false
+// H4:convert path in absolute
+export const convertToAbsolute = (track) => path.resolve(track);
 
 // H3: know if path is absolute, H4:convert path in absolute and H2: message if does not exist //
-export const validatePathAbsolute = (content) => fs.existsSync(content) ? path.normalize(path.resolve(content)): "The path does not exist";
+// export const validatePathAbsolute = (content) => fs.existsSync(content) ? path.normalize(path.resolve(content)): "The path does not exist";
 
 // H5: Know if path is a file //
 export const isPathAFile = (content) => fs.statSync(content).isFile(); // true o false

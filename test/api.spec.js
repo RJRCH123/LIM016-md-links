@@ -2,7 +2,9 @@
 
 import {   
   isExistsPath,
-  validatePathAbsolute,
+  isAbsolutePath,
+  convertToAbsolute,
+  // validatePathAbsolute,
   isPathAFile,
   isPathADirectory,
   readADirectory,
@@ -88,16 +90,26 @@ describe('function to check if path exists:', () => {
   });
 });
 
-// H3: know if path is absolute, H4:convert path in absolute and H2: message if does not exist //
-describe('function to check and convert in absolute if path is relative:', () => {
+// H3: know if path is absolute //
+describe('function know if path is absolute:', () => {
+  it('isAbsolutePath is a function', () => {
+    expect(typeof isAbsolutePath).toBe('function');
+  });
+  it('If the path is absolute, return true', () => {
+    expect(isAbsolutePath(absolutePath)).toBe(true);
+  });
+  it('If the path does not absolute, return false', () => {
+    expect(isAbsolutePath(relativePath)).toBe(false);
+  });
+});
+
+// H4:convert path in absolute //
+describe('function to convert path relative in absolute', () => {
   it('validatePathAbsolute is a function', () => {
-    expect(typeof validatePathAbsolute).toBe('function');
+    expect(typeof convertToAbsolute).toBe('function');
   });
   it('If the path is relative, return absolute path', () => {
-    expect(validatePathAbsolute(relativePath)).toEqual(absolutePath);
-  });
-  it('If the field is empty, return message', () => {
-    expect(validatePathAbsolute()).toEqual('The path does not exist');
+    expect(convertToAbsolute(relativePath)).toEqual(absolutePath);
   });
 });
 

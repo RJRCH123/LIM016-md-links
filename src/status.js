@@ -21,13 +21,13 @@ export const uniqueLinks = (array) => {
   let unique = array.map((link) => link.href);
   unique = [...new Set(unique)].length;
   const msgUnique = styleUnique(`Unique: ${unique}`);
-  return `\n${msgUnique}`;
+  return `${msgUnique}`;
 }
 
 // status: broken
 export const brokenLinks = (array) => {
   const broken = array.filter((link) => link.statusText === 'Fail');
   const msgBroken = styleBroken(`Broken: ${broken.length}`);
-  return `\n${msgBroken}`;
+  return `${msgBroken}`;
 };
 

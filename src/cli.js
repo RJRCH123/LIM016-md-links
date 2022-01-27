@@ -36,16 +36,32 @@ if (argument[0] === '--help') {
     +____________________+_________________________________________________________+
     | --help             | Print comands list.                                     |
     +____________________+_________________________________________________________+
+    | --ro               | Print logo                                              |
+    +____________________+_________________________________________________________+
     `))
+} else if (argument[0] === '--ro') {
+  console.log(styleCyan(`
+  █████████████████████████████████████████████████████
+  ██────█────████─███─█────█████─███───█─██─█─██─█───██
+  ██─██─█─██─████──█──█─██──████─████─██──█─█─█─██─████
+  ██────█─██─████─█─█─█─██──████─████─██─█──█──███───██
+  ██─█─██─██─████─███─█─██──████─████─██─██─█─█─████─██
+  ██─█─██────████─███─█────█████───█───█─██─█─██─█───██
+  █████████████████████████████████████████████████████
+  `))
+} } else if (argument[0] === '') {
+  console.log(styleCyan(`
+  Invalid comand. If you need help, please type --help
+  `))
 } else {
   mdLinksFunction(argument[0], { validate: false })
   .then(resolve => {
     resolve.map((object) => {
-    console.log(styleCyan(`File: ${object.file} \n Text: ${object.text} \n Href: ${object.href}`));
+    console.log(styleCyan(`
+  File: ${object.file} \n  Text: ${object.text} \n  Href: ${object.href}`));
     })
   })
   .catch(reject => console.log(reject));
-}
 };
 
 // Si se encuentra un path y una option //
@@ -58,8 +74,7 @@ if (argument.length === 2) {
     .then(resolve => {
       resolve.map((object) => {
       console.log(styleCyan(`
-      Href: ${object.href} \n Text: ${object.text} \n
-      File: ${object.file} \n Status: ${object.status} \n Message: ${object.message}`));
+  Href: ${object.href} \n  Text: ${object.text} \n  File: ${object.file} \n  Status: ${object.status} \n  Message: ${object.message}`));
       })
     })
     .catch(reject => console.log(reject));
@@ -67,7 +82,8 @@ if (argument.length === 2) {
 
   case '--stats':
     mdLinksFunction(argument[0], { validate: true })
-      .then(resolve => console.log(`${totalLinks(resolve)} \n ${uniqueLinks(resolve)}`))
+      .then(resolve => console.log(`
+${totalLinks(resolve)} ${uniqueLinks(resolve)}`))
       .catch(reject => console.log(reject));
     break;
 
@@ -84,7 +100,8 @@ if (argument.length === 3) {
     (argument[1] === "--validate" && argument[2] === "--stats")
   ) {
     mdLinksFunction(argument[0], { validate: true })
-      .then(resolve => console.log(`${totalLinks(resolve)} \n ${uniqueLinks(resolve)} \n ${brokenLinks(resolve)}`))
+      .then(resolve => console.log(`
+${totalLinks(resolve)} ${uniqueLinks(resolve)} ${brokenLinks(resolve)}`))
       .catch(reject => console.log(reject));
   } else {
     console.log(styleRed('Invalid comand. If you need help, please type --help'));

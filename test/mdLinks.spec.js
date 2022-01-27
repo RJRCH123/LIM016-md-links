@@ -1,8 +1,11 @@
 
 
 import {mdLinksFunction} from '../src/md-links.js';
-
+import chalk from '../__mocks__/chalk.js';
+const styleBroken = chalk.bold.red;
 const path = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folderC';
+
+const nullPath = 'C:\\Users\\Rouss\\Desktop\\LABORATORIA\\LIM016-md-links\\folders\\folderA\\folder';
 
 const validateFalse = [
   {
@@ -55,5 +58,8 @@ describe('mdLinksFunction', () => {
   });
   it('validate true / output: href; text; file, status, message Ok', () => {
     expect(mdLinksFunction(path, { validate: true })).resolves.toEqual(validateTrue);
+  });
+  it('validate true / output: Path does not exist', () => {
+    expect(mdLinksFunction(nullPath, { validate: true })).rejects.toEqual(styleBroken('Path does not exist'));
   });
 });

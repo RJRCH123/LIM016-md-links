@@ -79,7 +79,7 @@ console.log('getLinksInArray: ', getLinksInArray(directoryPath));
 
 // H10: Validate is True; output: href; text; file; status; message(ok or fail)
 // console.log(getvalidLinksInArray(getLinksInArray(directoryPath))); 
-getvalidLinksInArray(getLinksInArray(directoryPath))
+getvalidLinksInArray(getLinksInArray(directoryPath));
 
 
 // Status: total, unique, broken

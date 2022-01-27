@@ -1,20 +1,29 @@
 import   {
-  validatePathAbsolute,
-  getLinksInArray
+  getLinksInArray,
+  convertToAbsolute,
+  isExistsPath
 } from './api.js';
 
 import {   
   getvalidLinksInArray
 } from './validate.js';
 
+import chalk from '../__mocks__/chalk.js';
+
+const styleBroken = chalk.bold.red;
+
 export const mdLinksFunction = (track, options = { validate: true }) => new Promise((resolve) => {
-  // convertir ruta en absoluta
-  const path = validatePathAbsolute(track);
-    // si options validate es true
-  if (options.validate) {
+  // convert path in absolute
+  const path = convertToAbsolute(track);
+  // if path does not exits
+  if (isExistsPath(path) === false) {
+  // H2: message if does not exist
+  styleBroken('Path does not exist')
+    // if options validate is true
+  } else if (options.validate) {
     const validate = getvalidLinksInArray(getLinksInArray(path));
     resolve(validate);
-    // si options validate es false
+    // if options validate is false
   } else {
     resolve(getLinksInArray(path));
   }
