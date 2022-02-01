@@ -1,12 +1,13 @@
 
 
 ## ÍNDICE
-* [1. Ro md Links 📁](#1-Ro-md-Links )
-* [2. Realización del Proyecto](#2-Realización-del-Proyecto)
-* [3. Resultados de los tests](#3-Resultados-de-los-tests)
-* [4. Tecnologías empleadas](#4-tecnologias-empleadas)
-* [5. Fuentes](#5-fuentes)
-* [6. Autores](#6-autores)
+* [1. Ro md Links 📁](#1-Ro-md-Links)
+* [2. Instalación](#-2-Instalación)
+* [3. Realización del Proyecto](#2-Realización-del-Proyecto)
+* [4. Resultados de los tests](#3-Resultados-de-los-tests)
+* [5. Tecnologías empleadas](#4-tecnologias-empleadas)
+* [6. Fuentes](#5-fuentes)
+* [7. Autores](#6-autores)
 
 ***
 
@@ -20,9 +21,16 @@
 
 ***
 
-# 2. Realización del Proyecto
+# 2. Instalación
+Para instalar la librería Ro md link, se necesitará escribir el siguiente comando en la terminal.
+
+``` js
+npm i ro-md-links
+```
+
+# 3. Realización del Proyecto
 ## Este proyecto consta de DOS partes
-## 2.1 Diagramas de Flujo ✍🏼
+## 3.1 Diagramas de Flujo ✍🏼
 
 ### A) JavaScript API
 
@@ -36,7 +44,7 @@
 <img src="./src/img/CLI-Flowchart-Ro-Md-Links.png" width="800">
 </div>
 
-## 2.2 Descripción del proceso ✍🏼
+## 3.2 Descripción del proceso ✍🏼
 ### A) JavaScript API
 
 El módulo debe poder **importarse** en otros scripts de Node.js y debe ofrecer la
@@ -168,13 +176,13 @@ necesiten de los resultados de la validación.
 </div>
 
 ***
-# 3. Resultados de los tests
+# 4. Resultados de los tests
 
 <div align="center">
 <img src="./src/img/test.png" width="500">
 </div>
 
-# 4. Tecnologías empleadas 👩🏾‍💻
+# 5. Tecnologías empleadas 👩🏾‍💻
 
 ## Para la Planificación ✍
 
@@ -203,10 +211,10 @@ Vea el isomorphic-unfetch de Jason Miller o el cross-fetch de Leonardo Quixada p
 -   [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado ligero muy popular entre developers. Es usado en muchísimas plataformas que manejan texto plano (GitHub, foros, blogs, ...), y es muy común encontrar varios archivos en ese formato en cualquier tipo de repositorio (empezando por el tradicional `README.md`).
 
 ***
-# 5. Fuentes 📚
+# 6. Fuentes 📚
 - [Repositorio de Laboratoria:](https://github.com/Laboratoria/LIM016-md-links) Se encuentran todas las condiciones y herramientas a trabajar para el proyecto.
 
-# 6. Autores 📍
+# 7. Autores 📍
 - [Rosamaria Rodriguez](https://github.com/RJRCH123)
 - Equipo de Laboratoria LIM016
 
