@@ -1,6 +1,6 @@
 {
   "name": "ro-md-links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Librería desarrollada de línea de comando (CLI) con Node. js,  que lee y analiza archivos en formato Markdown dada una ruta, para verificar los links que contengan ,y así reportar algunas estadísticas.",
   "main": "src/md-links.js",
   "bin": {
